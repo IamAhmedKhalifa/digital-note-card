@@ -1,26 +1,52 @@
 @import "tailwindcss";
 
+@theme {
+  --color-nc-charcoal: #1c1c1c;
+  --color-nc-warm: #fffff0;
+  --color-nc-green: #2f4638;
+  --color-nc-gold: #d1b217;
+  --color-nc-grey: #cfcfcf;
+  --color-nc-surface: #f5f3ed;
+
+  --font-sans: var(--font-inter);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fffff0;
+  --foreground: #1c1c1c;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Safe area support for PWA */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove default button styles */
+button {
+  cursor: pointer;
+}
+
+/* Textarea auto-grow helper */
+textarea {
+  resize: none;
+  field-sizing: content;
+  min-height: 80px;
 }
